@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog - Scentorium BD</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="catalog.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <div class="top-marquee" role="region" aria-label="Site announcements">
+        <div class="marquee-track">FREE SHIPPING ON ORDERS OVER $50 — HOLIDAY SALE: UP TO 50% OFF SELECTED ITEMS — NEW ARRIVALS WEEKLY!</div>
+    </div>
+
+    <header>
+        <a href="index.html"><h1>Scentorium BD</h1></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="shopbybrand.html">Shop By Brand</a></li>
+                <li><a href="catalog.html?category=men">Men</a></li>
+                <li><a href="catalog.html?category=women">Women</a></li>
+                <li><a href="catalog.html?category=unisex">Unisex</a></li>
+                <li><a href="catalog.html">Gift Set</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="track.html">Track</a></li>
+                <li><a href="sale.html">Sale</a></li>
+            </ul>
+        </nav>
+        <form class="search-form" action="#" method="get" role="search">
+            <input type="search" name="q" placeholder="Search..." aria-label="Search">
+            <button type="submit">Search</button>
+        </form>
+
+        <div class="header-right" aria-hidden="false">
+            <div class="header-actions">
+                <button type="button" class="action-btn account" data-sidebar="main-sidebar" data-tab="account" aria-label="Account" aria-controls="panel-account">
+                    <i class="bx bx-user-circle" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="action-btn wishlist" data-sidebar="main-sidebar" data-tab="wishlist" aria-label="Wishlist" aria-controls="panel-wishlist">
+                    <i class="bx bx-heart" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="action-btn cart" data-sidebar="main-sidebar" data-tab="cart" aria-label="Cart" aria-controls="panel-cart">
+                    <i class="bx bx-shopping-bag" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="catalog-main">
+        
+
+        <div class="catalog-container">
+            <aside class="catalog-filters">
+                <div class="filter-header">
+                    <h3><i class="bx bx-filter-alt"></i> Filters</h3>
+                    <button class="clear-filters-btn" id="clearFilters">Clear All</button>
+                </div>
+
+                <div class="filter-group">
+                    <h4 class="filter-title" data-toggle="category">
+                        Category
+                        <i class="bx bx-chevron-down"></i>
+                    </h4>
+                    <div class="filter-options" id="category-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="men"> Men
+                            <span class="count">(24)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="women"> Women
+                            <span class="count">(31)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="unisex"> Unisex
+                            <span class="count">(18)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4 class="filter-title" data-toggle="brand">
+                        Brand
+                        <i class="bx bx-chevron-down"></i>
+                    </h4>
+                    <div class="filter-options" id="brand-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="chanel"> Chanel
+                            <span class="count">(12)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="dior"> Dior
+                            <span class="count">(15)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="tomford"> Tom Ford
+                            <span class="count">(8)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="gucci"> Gucci
+                            <span class="count">(10)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="creed"> Creed
+                            <span class="count">(6)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="ysl"> YSL
+                            <span class="count">(9)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="versace"> Versace
+                            <span class="count">(7)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="armani"> Armani
+                            <span class="count">(11)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4 class="filter-title" data-toggle="price">
+                        Price Range
+                        <i class="bx bx-chevron-down"></i>
+                    </h4>
+                    <div class="filter-options" id="price-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="price" value="0-50"> Under $50
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="price" value="50-100"> $50 - $100
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="price" value="100-200"> $100 - $200
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="price" value="200+"> $200+
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4 class="filter-title" data-toggle="scent">
+                        Scent Family
+                        <i class="bx bx-chevron-down"></i>
+                    </h4>
+                    <div class="filter-options" id="scent-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="scent" value="woody"> Woody
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="scent" value="floral"> Floral
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="scent" value="oriental"> Oriental
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="scent" value="fresh"> Fresh
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="scent" value="citrus"> Citrus
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="scent" value="spicy"> Spicy
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="scent" value="aquatic"> Aquatic
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4 class="filter-title" data-toggle="size">
+                        Size
+                        <i class="bx bx-chevron-down"></i>
+                    </h4>
+                    <div class="filter-options" id="size-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="size" value="30ml"> 30ml
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="size" value="50ml"> 50ml
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="size" value="100ml"> 100ml
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="size" value="200ml"> 200ml
+                        </label>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="catalog-content">
+                <div class="catalog-toolbar">
+                    <div class="results-count">
+                        <span id="resultsCount">20</span> Products
+                    </div>
+                    <div class="toolbar-right">
+                        <div class="sort-wrapper">
+                            <label for="sortSelect">Sort by:</label>
+                            <select id="sortSelect">
+                                <option value="featured">Featured</option>
+                                <option value="newest">Newest</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Best Rating</option>
+                            </select>
+                        </div>
+                        <div class="column-toggle">
+                            <label for="columnSelect">Columns:</label>
+                            <select id="columnSelect">
+                                <option value="4">4 per row</option>
+                                <option value="5" selected>5 per row</option>
+                            </select>
+                        </div>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid" aria-label="Grid view">
+                                <i class="bx bx-grid-alt"></i>
+                            </button>
+                            <button class="view-btn" data-view="list" aria-label="List view">
+                                <i class="bx bx-list-ul"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-grid" id="productsGrid">
+                    <article class="product-card" data-product-id="dior-woody-155" data-category="men" data-brand="dior" data-price="155" data-scent="woody">
+                        <div class="product-image">
+                            <span class="product-badge bestseller">Bestseller</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="07c899097d9a36ba82000e37adac525a-removebg-preview.png" alt="Dior Sauvage">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Dior</span>
+                            <h3 class="product-name">Sauvage Eau de Parfum</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star-half"></i>
+                                <span>(128)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$155.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="chanel-floral-189" data-category="women" data-brand="chanel" data-price="189" data-scent="floral">
+                        <div class="product-image">
+                            <span class="product-badge new">New</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="0d1748ef5c55e57eb3907424e30ed552-removebg-preview.png" alt="Chanel N5">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Chanel</span>
+                            <h3 class="product-name">N°5 Eau de Parfum</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <span>(256)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$189.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="tomford-oriental-250" data-category="men" data-brand="tomford" data-price="250" data-scent="oriental">
+                        <div class="product-image">
+                            <span class="product-badge sale">-30%</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="ccc8b654a602cbf2b5ae2192bd535e27-removebg-preview.png" alt="Tom Ford Oud Wood">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Tom Ford</span>
+                            <h3 class="product-name">Oud Wood Eau de Parfum</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bx-star"></i>
+                                <span>(89)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="original-price">$350.00</span>
+                                <span class="current-price sale">$250.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="gucci-floral-99" data-category="women" data-brand="gucci" data-price="99" data-scent="floral">
+                        <div class="product-image">
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="8519efaa4b72764fc7790d128cbcebfe-removebg-preview.png" alt="Gucci Bloom">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Gucci</span>
+                            <h3 class="product-name">Bloom Eau de Parfum</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star-half"></i>
+                                <span>(167)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$99.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="creed-fresh-299" data-category="unisex" data-brand="creed" data-price="299" data-scent="fresh">
+                        <div class="product-image">
+                            <span class="product-badge bestseller">Bestseller</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="0c9588340c638ffa0701e02cf0445425-removebg-preview.png" alt="Creed Aventus">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Creed</span>
+                            <h3 class="product-name">Aventus Eau de Parfum</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <span>(312)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$299.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="ysl-woody-125" data-category="men" data-brand="ysl" data-price="125" data-scent="woody">
+                        <div class="product-image">
+                            <span class="product-badge new">New</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="021cdb0c93502fb1cd62f5031f183e86-removebg-preview.png" alt="YSL Y">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">YSL</span>
+                            <h3 class="product-name">Y Eau de Parfum</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bx-star"></i>
+                                <span>(94)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$125.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="dior-floral-145" data-category="women" data-brand="dior" data-price="145" data-scent="floral">
+                        <div class="product-image">
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="f1f3f6821b5de474ecd36f8a4a682fad-removebg-preview.png" alt="Miss Dior">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Dior</span>
+                            <h3 class="product-name">Miss Dior Eau de Parfum</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star-half"></i>
+                                <span>(203)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$145.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="tomford-citrus-185" data-category="unisex" data-brand="tomford" data-price="185" data-scent="citrus">
+                        <div class="product-image">
+                            <span class="product-badge sale">-20%</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="42cace049481c3f56630f88bf81d1053-removebg-preview.png" alt="Tom Ford Neroli">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Tom Ford</span>
+                            <h3 class="product-name">Neroli Portofino</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bx-star"></i>
+                                <span>(76)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="original-price">$230.00</span>
+                                <span class="current-price sale">$185.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="versace-fresh-89" data-category="men" data-brand="versace" data-price="89" data-scent="fresh">
+                        <div class="product-image">
+                            <span class="product-badge bestseller">Bestseller</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="dc3139a853ed2108cd2985c6c39d87f5-removebg-preview.png" alt="Versace Eros">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Versace</span>
+                            <h3 class="product-name">Eros Eau de Toilette</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <span>(245)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$89.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="chanel-oriental-165" data-category="women" data-brand="chanel" data-price="165" data-scent="oriental">
+                        <div class="product-image">
+                            <span class="product-badge new">New</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="0d1748ef5c55e57eb3907424e30ed552-removebg-preview.png" alt="Coco Mademoiselle">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Chanel</span>
+                            <h3 class="product-name">Coco Mademoiselle EDP</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star-half"></i>
+                                <span>(189)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$165.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="armani-spicy-110" data-category="men" data-brand="armani" data-price="110" data-scent="spicy">
+                        <div class="product-image">
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="07c899097d9a36ba82000e37adac525a-removebg-preview.png" alt="Armani Code">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Armani</span>
+                            <h3 class="product-name">Code Eau de Parfum</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bx-star"></i>
+                                <span>(134)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$110.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="creed-woody-395" data-category="unisex" data-brand="creed" data-price="395" data-scent="woody">
+                        <div class="product-image">
+                            <span class="product-badge new">New</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="0c9588340c638ffa0701e02cf0445425-removebg-preview.png" alt="Creed Royal Oud">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Creed</span>
+                            <h3 class="product-name">Royal Oud Eau de Parfum</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <span>(98)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$395.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="gucci-floral-135" data-category="women" data-brand="gucci" data-price="135" data-scent="floral">
+                        <div class="product-image">
+                            <span class="product-badge sale">-15%</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="8519efaa4b72764fc7790d128cbcebfe-removebg-preview.png" alt="Gucci Flora">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Gucci</span>
+                            <h3 class="product-name">Flora Gorgeous Gardenia</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star-half"></i>
+                                <span>(156)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="original-price">$159.00</span>
+                                <span class="current-price sale">$135.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="dior-spicy-175" data-category="men" data-brand="dior" data-price="175" data-scent="spicy">
+                        <div class="product-image">
+                            <span class="product-badge bestseller">Bestseller</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="07c899097d9a36ba82000e37adac525a-removebg-preview.png" alt="Dior Homme Intense">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Dior</span>
+                            <h3 class="product-name">Homme Intense EDP</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <span>(178)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$175.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="ysl-oriental-139" data-category="women" data-brand="ysl" data-price="139" data-scent="oriental">
+                        <div class="product-image">
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="f1f3f6821b5de474ecd36f8a4a682fad-removebg-preview.png" alt="YSL Black Opium">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">YSL</span>
+                            <h3 class="product-name">Black Opium Eau de Parfum</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star-half"></i>
+                                <span>(267)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$139.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="versace-aquatic-79" data-category="men" data-brand="versace" data-price="79" data-scent="aquatic">
+                        <div class="product-image">
+                            <span class="product-badge sale">-25%</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="dc3139a853ed2108cd2985c6c39d87f5-removebg-preview.png" alt="Versace Pour Homme">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Versace</span>
+                            <h3 class="product-name">Pour Homme Dylan Blue</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bx-star"></i>
+                                <span>(112)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="original-price">$105.00</span>
+                                <span class="current-price sale">$79.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="tomford-oriental-320" data-category="unisex" data-brand="tomford" data-price="320" data-scent="oriental">
+                        <div class="product-image">
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="ccc8b654a602cbf2b5ae2192bd535e27-removebg-preview.png" alt="Tom Ford Tobacco Vanille">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Tom Ford</span>
+                            <h3 class="product-name">Tobacco Vanille EDP</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <span>(201)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$320.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="armani-floral-95" data-category="women" data-brand="armani" data-price="95" data-scent="floral">
+                        <div class="product-image">
+                            <span class="product-badge new">New</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="f1f3f6821b5de474ecd36f8a4a682fad-removebg-preview.png" alt="Armani Si">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Armani</span>
+                            <h3 class="product-name">Si Eau de Parfum</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star-half"></i>
+                                <span>(145)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$95.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="chanel-woody-149" data-category="men" data-brand="chanel" data-price="149" data-scent="woody">
+                        <div class="product-image">
+                            <span class="product-badge bestseller">Bestseller</span>
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="021cdb0c93502fb1cd62f5031f183e86-removebg-preview.png" alt="Chanel Bleu">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Chanel</span>
+                            <h3 class="product-name">Bleu de Chanel EDP</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <span>(389)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$149.00</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="creed-citrus-285" data-category="unisex" data-brand="creed" data-price="285" data-scent="citrus">
+                        <div class="product-image">
+                            <button class="wishlist-btn action-btn" data-action="wishlist" aria-label="Add to wishlist"><i class="bx bx-heart"></i></button>
+                            <button class="cart-btn action-btn" data-action="add-to-cart" aria-label="Add to cart"><i class="bx bx-shopping-bag"></i></button>
+                            <img src="42cace049481c3f56630f88bf81d1053-removebg-preview.png" alt="Creed Silver Mountain">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Creed</span>
+                            <h3 class="product-name">Silver Mountain Water</h3>
+                            <div class="product-rating">
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star-half"></i>
+                                <span>(167)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$285.00</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="pagination">
+                    <button class="page-btn prev" disabled><i class="bx bx-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <span class="page-ellipsis">...</span>
+                    <button class="page-btn">10</button>
+                    <button class="page-btn next"><i class="bx bx-chevron-right"></i></button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>About Scentorium</h4>
+                <p>Your destination for authentic luxury fragrances. We offer a curated selection of premium perfumes from the world's most prestigious brands.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html">Shop</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="track.html">Track Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="bx bxl-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Scentorium BD. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- sidebars (off-canvas panels) -->
+    <!-- unified sidebar: account / wishlist / cart panels inside one container -->
+    <div id="main-sidebar" class="sidebar" aria-hidden="true">
+        <div class="sidebar-top">
+            <h2 id="sidebar-title">Your panel</h2>
+            <button class="close-btn" data-close="main-sidebar" aria-label="Close panel">
+                <i class="bx bx-x" aria-hidden="true"></i>
+                <span class="visually-hidden">Close</span>
+            </button>
+        </div>
+        <div class="sidebar-tabs-row">
+            <div class="sidebar-tabs" role="tablist" aria-label="Sidebar panels">
+                <button type="button" class="tab-btn" data-tab="account" role="tab" aria-selected="false" aria-controls="panel-account">
+                    <i class="bx bx-user-circle" aria-hidden="true"></i>
+                    <span class="tab-label">Account</span>
+                </button>
+                <button type="button" class="tab-btn" data-tab="wishlist" role="tab" aria-selected="false" aria-controls="panel-wishlist">
+                    <i class="bx bx-heart" aria-hidden="true"></i>
+                    <span class="tab-label">Wishlist</span>
+                </button>
+                <button type="button" class="tab-btn" data-tab="cart" role="tab" aria-selected="false" aria-controls="panel-cart">
+                    <i class="bx bx-shopping-bag" aria-hidden="true"></i>
+                    <span class="tab-label">Cart</span>
+                </button>
+            </div>
+        </div>
+        <div class="sidebar-content">
+            <div class="panel" id="panel-account" role="tabpanel" aria-hidden="true">
+                <h3>Sign in to your account</h3>
+                <form class="account-form" action="#" method="post">
+                    <label>Email</label>
+                    <input name="email" type="email" required placeholder="you@example.com">
+                    <label>Password</label>
+                    <input name="password" type="password" required placeholder="********">
+                    <div class="form-row">
+                        <label class="checkbox"><input type="checkbox" name="remember"> Remember me</label>
+                        <a href="#" class="forgot">Forgot?</a>
+                    </div>
+                    <button type="submit" class="primary">Sign in</button>
+                    <p class="muted">New here? <a href="#">Create an account</a></p>
+                </form>
+            </div>
+            <div class="panel" id="panel-wishlist" role="tabpanel" aria-hidden="true">
+                <ul class="wishlist-items">
+                    <li>No items yet - start adding favorites.</li>
+                </ul>
+            </div>
+            <div class="panel" id="panel-cart" role="tabpanel" aria-hidden="true">
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <img src="" alt="item">
+                        <div class="meta">
+                            <div class="title">Sample Product</div>
+                            <div class="price">$0.00</div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cart-footer">
+                    <div class="subtotal"><span>Subtotal</span><span>$0.00</span></div>
+                    <button class="checkout">Proceed to checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sidebar-overlay" class="sidebar-overlay" data-close-overlay></div>
+
+    <script src="script.js"></script>
+    <script src="catalog.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order - Scentorium BD</title>
+    <!-- Boxicons (icon font) -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="track.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <!-- top marquee announcement -->
+    <div class="top-marquee" role="region" aria-label="Site announcements">
+        <div class="marquee-track">FREE SHIPPING ON ORDERS OVER $50 — HOLIDAY SALE: UP TO 50% OFF SELECTED ITEMS — NEW ARRIVALS WEEKLY!</div>
+    </div>
+
+    <header>
+        <h1>Scentorium BD</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="shopbybrand.html">Shop By Brand</a></li>
+                <li><a href="catalog.html?category=men">Men</a></li>
+                <li><a href="catalog.html?category=women">Women</a></li>
+                <li><a href="catalog.html?category=unisex">Unisex</a></li>
+                <li><a href="catalog.html">Gift Set</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="track.html">Track</a></li>
+                <li><a href="sale.html"class="active">Sale</a></li>
+
+
+            </ul>
+        </nav>
+        <!-- centered search form (moved out of header-right so it can be centered) -->
+        <form class="search-form" action="#" method="get" role="search">
+            <input type="search" name="q" placeholder="Search..." aria-label="Search">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- header-right: action buttons (search removed so it can be centered) -->
+        <div class="header-right" aria-hidden="false">
+            <div class="header-actions">
+                <button type="button" class="action-btn account" data-sidebar="main-sidebar" data-tab="account" aria-label="Account" aria-controls="panel-account">
+                    <i class="bx bx-user-circle" aria-hidden="true"></i>
+                </button>
+
+                <button type="button" class="action-btn wishlist" data-sidebar="main-sidebar" data-tab="wishlist" aria-label="Wishlist" aria-controls="panel-wishlist">
+                    <i class="bx bx-heart" aria-hidden="true"></i>
+                </button>
+
+                <button type="button" class="action-btn cart" data-sidebar="main-sidebar" data-tab="cart" aria-label="Cart" aria-controls="panel-cart">
+                    <i class="bx bx-shopping-bag" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+        <!-- sidebars (off-canvas panels) -->
+        <!-- unified sidebar: account / wishlist / cart panels inside one container -->
+        <div id="main-sidebar" class="sidebar" aria-hidden="true">
+            <!-- top row: title left, close button right -->
+            <div class="sidebar-top">
+                <h2 id="sidebar-title">Your panel</h2>
+                <button class="close-btn" data-close="main-sidebar" aria-label="Close panel">
+                    <i class="bx bx-x" aria-hidden="true"></i>
+                    <span class="visually-hidden">Close</span>
+                </button>
+            </div>
+
+            <!-- second row: tabs centered/left-aligned -->
+            <div class="sidebar-tabs-row">
+                <div class="sidebar-tabs" role="tablist" aria-label="Sidebar panels">
+                    <button type="button" class="tab-btn" data-tab="account" role="tab" aria-selected="false" aria-controls="panel-account">
+                        <i class="bx bx-user-circle" aria-hidden="true"></i>
+                        <span class="tab-label">Account</span>
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="wishlist" role="tab" aria-selected="false" aria-controls="panel-wishlist">
+                        <i class="bx bx-heart" aria-hidden="true"></i>
+                        <span class="tab-label">Wishlist</span>
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="cart" role="tab" aria-selected="false" aria-controls="panel-cart">
+                        <i class="bx bx-shopping-bag" aria-hidden="true"></i>
+                        <span class="tab-label">Cart</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-content">
+                <!-- Account panel -->
+                <div class="panel" id="panel-account" role="tabpanel" aria-hidden="true">
+                    <h3>Sign in to your account</h3>
+                    <form id="account-form" class="account-form" action="#" method="post">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" required placeholder="you@example.com">
+
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" required placeholder="••••••••">
+
+                        <div class="form-row">
+                            <label class="checkbox"><input type="checkbox" name="remember"> Remember me</label>
+                            <a href="#" class="forgot">Forgot?</a>
+                        </div>
+
+                        <button type="submit" class="primary">Sign in</button>
+
+                        <p class="muted">New here? <a href="#">Create an account</a></p>
+                    </form>
+                </div>
+
+                <!-- Wishlist panel -->
+                <div class="panel" id="panel-wishlist" role="tabpanel" aria-hidden="true">
+
+                    <ul class="wishlist-list">
+                        <li>No items yet — start adding favorites.</li>
+                    </ul>
+                </div>
+
+
+                <!-- Cart panel -->
+                <div class="panel" id="panel-cart" role="tabpanel" aria-hidden="true">
+
+                    <ul class="cart-items">
+                        <li class="cart-item">
+                            <img src="" alt="item">
+                            <div class="meta">
+                                <div class="title">Sample Product</div>
+                                <div class="price">$0.00</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cart-footer">
+                        <div class="subtotal"><span>Subtotal</span><span>$0.00</span></div>
+                        <button class="checkout">Proceed to checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sidebar-overlay" class="sidebar-overlay" data-close-overlay></div>
+
+        <div class="promobar">
+            <p class="promotext" >HOLIDAY SALE! - Upto 50% off | SHOP NOW!</p>
+        </div>
+
+        <!-- Track Order Section -->
+        <section class="track-order" aria-label="Track Your Order">
+            <div class="track-container">
+                <h2>Track Your Order</h2>
+                <p>Enter your order number and email address to track your shipment.</p>
+                <form class="track-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="order-number">Order Number</label>
+                        <input type="text" id="order-number" name="order-number" required placeholder="e.g., SCENT-123456">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com">
+                    </div>
+                    <button type="submit" class="track-btn">Track Order</button>
+                </form>
+
+                <!-- Sample Tracking Information (for demo purposes) -->
+                <div class="tracking-info" id="tracking-info" style="display: none;">
+                    <h3>Order Status</h3>
+                    <div class="status-item">
+                        <div class="status-icon">
+                            <i class="bx bx-check-circle"></i>
+                        </div>
+                        <div class="status-details">
+                            <h4>Order Placed</h4>
+                            <p>December 1, 2023 - 10:30 AM</p>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-icon">
+                            <i class="bx bx-check-circle"></i>
+                        </div>
+                        <div class="status-details">
+                            <h4>Order Confirmed</h4>
+                            <p>December 1, 2023 - 11:00 AM</p>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-icon">
+                            <i class="bx bx-package"></i>
+                        </div>
+                        <div class="status-details">
+                            <h4>Shipped</h4>
+                            <p>December 2, 2023 - 2:15 PM</p>
+                            <p>Tracking Number: 1Z999AA1234567890</p>
+                        </div>
+                    </div>
+                    <div class="status-item active">
+                        <div class="status-icon">
+                            <i class="bx bx-truck"></i>
+                        </div>
+                        <div class="status-details">
+                            <h4>Out for Delivery</h4>
+                            <p>Estimated Delivery: December 5, 2023</p>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-icon">
+                            <i class="bx bx-home"></i>
+                        </div>
+                        <div class="status-details">
+                            <h4>Delivered</h4>
+                            <p>Pending</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Scentorium BD</h3>
+                <p>Your premier destination for luxury fragrances in Bangladesh. Discover the finest scents from around the world.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="catalog.html">Shop</a></li>
+                    <li><a href="sale.html">Sale</a></li>
+                    <li><a href="track.html">Track Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe to get special offers and updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Scentorium BD. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    </body>
+
+</html>

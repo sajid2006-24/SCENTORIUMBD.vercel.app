@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Scentorium BD</title>
+    <!-- Boxicons (icon font) -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <style>
+        /* Checkout specific styles */
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+        }
+
+        .checkout-form {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .checkout-form h2 {
+            color: #023635;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+        }
+
+        .form-section h3 {
+            color: #00ABB9;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #023635;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #00ABB9;
+            box-shadow: 0 0 0 3px rgba(0,171,185,0.1);
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .payment-method {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method:hover,
+        .payment-method.selected {
+            border-color: #00ABB9;
+            background: rgba(0,171,185,0.05);
+        }
+
+        .payment-method i {
+            font-size: 24px;
+            color: #00ABB9;
+            margin-bottom: 8px;
+        }
+
+        .order-summary {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            height: fit-content;
+        }
+
+        .order-summary h3 {
+            color: #023635;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .order-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .order-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .order-item-details {
+            flex: 1;
+        }
+
+        .order-item-title {
+            font-weight: 600;
+            color: #023635;
+            margin-bottom: 5px;
+        }
+
+        .order-item-price {
+            color: #00ABB9;
+            font-weight: 600;
+        }
+
+        .order-totals {
+            border-top: 2px solid #f0f0f0;
+            padding-top: 20px;
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 700;
+            color: #023635;
+            margin-bottom: 30px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #00ABB9, #008a99);
+            color: #fff;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,171,185,0.3);
+        }
+
+        .back-to-cart {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #00ABB9;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-cart:hover {
+            color: #008a99;
+        }
+
+        /* Thank you modal styles */
+        .thank-you-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .thank-you-modal.show {
+            display: flex;
+        }
+
+        .thank-you-content {
+            background: #fff;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .thank-you-icon {
+            font-size: 64px;
+            color: #00ABB9;
+            margin-bottom: 20px;
+        }
+
+        .thank-you-content h2 {
+            color: #023635;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .thank-you-content p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .track-order-btn {
+            background: linear-gradient(135deg, #00ABB9, #008a99);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .track-order-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .thank-you-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- top marquee announcement -->
+    <div class="top-marquee" role="region" aria-label="Site announcements">
+        <div class="marquee-track">FREE SHIPPING ON ORDERS OVER $50 — HOLIDAY SALE: UP TO 50% OFF SELECTED ITEMS — NEW ARRIVALS WEEKLY!</div>
+    </div>
+
+    <header>
+        <h1>Scentorium BD</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="shopbybrand.html">Shop By Brand</a></li>
+                <li><a href="catalog.html">Men</a></li>
+                <li><a href="catalog.html">Women</a></li>
+                <li><a href="catalog.html">Gift Set</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="track.html">Track</a></li>
+                <li><a href="sale.html" class="active">Sale</a></li>
+            </ul>
+        </nav>
+        <!-- centered search form (moved out of header-right so it can be centered) -->
+        <form class="search-form" action="#" method="get" role="search">
+            <input type="search" name="q" placeholder="Search..." aria-label="Search">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- header-right: action buttons (search removed so it can be centered) -->
+        <div class="header-right" aria-hidden="false">
+            <div class="header-actions">
+                <button type="button" class="action-btn account" data-sidebar="main-sidebar" data-tab="account" aria-label="Account" aria-controls="panel-account">
+                    <i class="bx bx-user-circle" aria-hidden="true"></i>
+                </button>
+
+                <button type="button" class="action-btn wishlist" data-sidebar="main-sidebar" data-tab="wishlist" aria-label="Wishlist" aria-controls="panel-wishlist">
+                    <i class="bx bx-heart" aria-hidden="true"></i>
+                </button>
+
+                <button type="button" class="action-btn cart" data-sidebar="main-sidebar" data-tab="cart" aria-label="Cart" aria-controls="panel-cart">
+                    <i class="bx bx-shopping-bag" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="checkout-container">
+            <div class="checkout-form">
+                <a href="index.html" class="back-to-cart">
+                    <i class="bx bx-arrow-back"></i>
+                    Back to Cart
+                </a>
+                <h2>Checkout</h2>
+
+                <form action="#" method="post">
+                    <div class="form-section">
+                        <h3>Billing Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" name="first-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" name="last-name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Shipping Address</h3>
+                        <div class="form-group">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">ZIP Code</label>
+                                <input type="text" id="zip" name="zip" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select id="country" name="country" required>
+                                <option value="">Select Country</option>
+                                <option value="BD">Bangladesh</option>
+                                <option value="US">United States</option>
+                                <option value="UK">United Kingdom</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Payment Method</h3>
+                        <div class="payment-methods">
+                            <div class="payment-method selected">
+                                <i class="bx bx-credit-card"></i>
+                                <div>Credit Card</div>
+                            </div>
+                            <div class="payment-method">
+                                <i class="bx bx-money"></i>
+                                <div>Cash on Delivery</div>
+                            </div>
+                            <div class="payment-method">
+                                <i class="bx bx-wallet"></i>
+                                <div>Digital Wallet</div>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry">Expiry Date</label>
+                                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <div class="order-items">
+                    <div class="order-item">
+                        <img src="f1f3f6821b5de474ecd36f8a4a682fad.jpg" alt="Chanel No. 5">
+                        <div class="order-item-details">
+                            <div class="order-item-title">Chanel No. 5 Eau de Parfum</div>
+                            <div class="order-item-price">$79.99</div>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <img src="42cace049481c3f56630f88bf81d1053.jpg" alt="Dior Sauvage">
+                        <div class="order-item-details">
+                            <div class="order-item-title">Dior Sauvage Eau de Toilette</div>
+                            <div class="order-item-price">$76.49</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-totals">
+                    <div class="order-total">
+                        <span>Total</span>
+                        <span>$156.48</span>
+                    </div>
+                    <button class="checkout-btn">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Scentorium BD</h3>
+                <p>Your premier destination for luxury fragrances in Bangladesh. Discover the finest scents from around the world.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="catalog.html">Shop</a></li>
+                    <li><a href="sale.html">Sale</a></li>
+                    <li><a href="track.html">Track Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe to get special offers and updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Scentorium BD. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- sidebars (off-canvas panels) -->
+    <!-- unified sidebar: account / wishlist / cart panels inside one container -->
+    <div id="main-sidebar" class="sidebar" aria-hidden="true">
+        <div class="sidebar-top">
+            <h2 id="sidebar-title">Your panel</h2>
+            <button class="close-btn" data-close="main-sidebar" aria-label="Close panel">
+                <i class="bx bx-x" aria-hidden="true"></i>
+                <span class="visually-hidden">Close</span>
+            </button>
+        </div>
+        <div class="sidebar-tabs-row">
+            <div class="sidebar-tabs" role="tablist" aria-label="Sidebar panels">
+                <button type="button" class="tab-btn" data-tab="account" role="tab" aria-selected="false" aria-controls="panel-account">
+                    <i class="bx bx-user-circle" aria-hidden="true"></i>
+                    <span class="tab-label">Account</span>
+                </button>
+                <button type="button" class="tab-btn" data-tab="wishlist" role="tab" aria-selected="false" aria-controls="panel-wishlist">
+                    <i class="bx bx-heart" aria-hidden="true"></i>
+                    <span class="tab-label">Wishlist</span>
+                </button>
+                <button type="button" class="tab-btn" data-tab="cart" role="tab" aria-selected="false" aria-controls="panel-cart">
+                    <i class="bx bx-shopping-bag" aria-hidden="true"></i>
+                    <span class="tab-label">Cart</span>
+                </button>
+            </div>
+        </div>
+        <div class="sidebar-content">
+            <div class="panel" id="panel-account" role="tabpanel" aria-hidden="true">
+                <h3>Sign in to your account</h3>
+                <form class="account-form" action="#" method="post">
+                    <label>Email</label>
+                    <input name="email" type="email" required placeholder="you@example.com">
+                    <label>Password</label>
+                    <input name="password" type="password" required placeholder="********">
+                    <button type="submit" class="primary">Sign in</button>
+                    <p class="muted">New here? <a href="#">Create an account</a></p>
+                </form>
+            </div>
+            <div class="panel" id="panel-wishlist" role="tabpanel" aria-hidden="true">
+                <ul class="wishlist-list">
+                    <li>No items yet - start adding favorites.</li>
+                </ul>
+            </div>
+            <div class="panel" id="panel-cart" role="tabpanel" aria-hidden="true">
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <img src="" alt="item">
+                        <div class="meta">
+                            <div class="title">Sample Product</div>
+                            <div class="price">$0.00</div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cart-footer">
+                    <div class="subtotal"><span>Subtotal</span><span>$0.00</span></div>
+                    <button class="checkout">Proceed to checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sidebar-overlay" class="sidebar-overlay" data-close-overlay></div>
+
+    <!-- Thank you modal -->
+    <div id="thank-you-modal" class="thank-you-modal">
+        <div class="thank-you-content">
+            <div class="thank-you-icon">
+                <i class="bx bx-check-circle"></i>
+            </div>
+            <h2>Thank You for Your Order!</h2>
+            <p>Your order has been successfully placed. We'll send you a confirmation email shortly with your order details and tracking information.</p>
+            <button class="track-order-btn" onclick="window.location.href='track.html'">Track Order</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Load cart data from localStorage and populate order summary
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+            const cartSubtotal = parseFloat(localStorage.getItem('cartSubtotal') || '0');
+            const orderItemsContainer = document.querySelector('.order-items');
+            const orderTotalElement = document.querySelector('.order-total span:last-child');
+
+            // Clear existing sample items
+            orderItemsContainer.innerHTML = '';
+
+            if (cartItems.length === 0) {
+                // Show sample item if no cart items
+                orderItemsContainer.innerHTML = `
+                    <div class="order-item">
+                        <img src="f1f3f6821b5de474ecd36f8a4a682fad.jpg" alt="Sample Product">
+                        <div class="order-item-details">
+                            <div class="order-item-title">Sample Product</div>
+                            <div class="order-item-price">$0.00</div>
+                        </div>
+                    </div>
+                `;
+                orderTotalElement.textContent = '$0.00';
+            } else {
+                // Populate with actual cart items
+                cartItems.forEach(item => {
+                    const orderItem = document.createElement('div');
+                    orderItem.className = 'order-item';
+                    orderItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="order-item-details">
+                            <div class="order-item-title">${item.name}</div>
+                            <div class="order-item-price">$${item.price.toFixed(2)}</div>
+                        </div>
+                    `;
+                    orderItemsContainer.appendChild(orderItem);
+                });
+                orderTotalElement.textContent = `$${cartSubtotal.toFixed(2)}`;
+            }
+
+            // Add event listener to checkout button
+            const checkoutBtn = document.querySelector('.checkout-btn');
+            checkoutBtn.addEventListener('click', function() {
+                const modal = document.getElementById('thank-you-modal');
+                modal.classList.add('show');
+            });
+
+            // Close modal when clicking outside
+            const modal = document.getElementById('thank-you-modal');
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

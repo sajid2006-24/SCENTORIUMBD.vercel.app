@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Boxicons (icon font) -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <!-- top marquee announcement -->
+    <div class="top-marquee" role="region" aria-label="Site announcements">
+        <div class="marquee-track">FREE SHIPPING ON ORDERS OVER $50 — HOLIDAY SALE: UP TO 50% OFF SELECTED ITEMS — NEW ARRIVALS WEEKLY!</div>
+    </div>
+
+    <header>
+        <a href="index.html"><h1>Scentorium BD</h1></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="shopbybrand.html">Shop By Brand</a></li>
+                <li><a href="catalog.html?category=men">Men</a></li>
+                <li><a href="catalog.html?category=women">Women</a></li>
+                <li><a href="catalog.html?category=unisex">Unisex</a></li>
+                <li><a href="catalog.html">Gift Set</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="track.html">Track</a></li>
+                <li><a href="sale.html" class="active">Sale</a></li>
+                
+        
+            </ul>
+        </nav>
+        <!-- centered search form (moved out of header-right so it can be centered) -->
+        <form class="search-form" action="#" method="get" role="search">
+            <input type="search" name="q" placeholder="Search..." aria-label="Search">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- header-right: action buttons (search removed so it can be centered) -->
+        <div class="header-right" aria-hidden="false">
+            <div class="header-actions">
+                <button type="button" class="action-btn account" data-sidebar="main-sidebar" data-tab="account" aria-label="Account" aria-controls="panel-account">
+                    <i class="bx bx-user-circle" aria-hidden="true"></i>
+                </button>
+
+                <button type="button" class="action-btn wishlist" data-sidebar="main-sidebar" data-tab="wishlist" aria-label="Wishlist" aria-controls="panel-wishlist">
+                    <i class="bx bx-heart" aria-hidden="true"></i>
+                </button>
+
+                <button type="button" class="action-btn cart" data-sidebar="main-sidebar" data-tab="cart" aria-label="Cart" aria-controls="panel-cart">
+                    <i class="bx bx-shopping-bag" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+        <!-- sidebars (off-canvas panels) -->
+        <!-- unified sidebar: account / wishlist / cart panels inside one container -->
+        <div id="main-sidebar" class="sidebar" aria-hidden="true">
+            <!-- top row: title left, close button right -->
+            <div class="sidebar-top">
+                <h2 id="sidebar-title">Your panel</h2>
+                <button class="close-btn" data-close="main-sidebar" aria-label="Close panel">
+                    <i class="bx bx-x" aria-hidden="true"></i>
+                    <span class="visually-hidden">Close</span>
+                </button>
+            </div>
+
+            <!-- second row: tabs centered/left-aligned -->
+            <div class="sidebar-tabs-row">
+                <div class="sidebar-tabs" role="tablist" aria-label="Sidebar panels">
+                    <button type="button" class="tab-btn" data-tab="account" role="tab" aria-selected="false" aria-controls="panel-account">
+                        <i class="bx bx-user-circle" aria-hidden="true"></i>
+                        <span class="tab-label">Account</span>
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="wishlist" role="tab" aria-selected="false" aria-controls="panel-wishlist">
+                        <i class="bx bx-heart" aria-hidden="true"></i>
+                        <span class="tab-label">Wishlist</span>
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="cart" role="tab" aria-selected="false" aria-controls="panel-cart">
+                        <i class="bx bx-shopping-bag" aria-hidden="true"></i>
+                        <span class="tab-label">Cart</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-content">
+                <!-- Account panel - Logged Out State -->
+                <div class="panel" id="panel-account" role="tabpanel" aria-hidden="true">
+                    <div id="logged-out-view" class="auth-view">
+                        <div class="auth-header">
+                            <div class="auth-icon">
+                                <i class="bx bx-user-circle"></i>
+                            </div>
+                            <h3>Welcome to Scentorium</h3>
+                            <p class="auth-subtitle">Sign in to access your account, wishlist, and order history</p>
+                        </div>
+                        
+                        <div class="social-login-buttons">
+                            <a href="/api/login" class="social-btn google-btn">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                                </svg>
+                                <span>Continue with Google</span>
+                            </a>
+                            <a href="/api/login" class="social-btn apple-btn">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                                </svg>
+                                <span>Continue with Apple</span>
+                            </a>
+                            <a href="/api/login" class="social-btn email-btn">
+                                <i class="bx bx-envelope"></i>
+                                <span>Continue with Email</span>
+                            </a>
+                        </div>
+                        
+                        <div class="auth-divider">
+                            <span>Secure login powered by Replit</span>
+                        </div>
+                        
+                        <div class="auth-benefits">
+                            <div class="benefit">
+                                <i class="bx bx-check-circle"></i>
+                                <span>Track your orders</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="bx bx-check-circle"></i>
+                                <span>Save your wishlist</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="bx bx-check-circle"></i>
+                                <span>Faster checkout</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="logged-in-view" class="auth-view" style="display: none;">
+                        <div class="user-profile">
+                            <img id="user-avatar" src="" alt="Profile" class="user-avatar">
+                            <h3 id="user-name">Welcome back!</h3>
+                            <p id="user-email" class="user-email"></p>
+                        </div>
+                        
+                        <div class="account-menu">
+                            <a href="#" class="account-menu-item">
+                                <i class="bx bx-package"></i>
+                                <span>My Orders</span>
+                                <i class="bx bx-chevron-right"></i>
+                            </a>
+                            <a href="#" class="account-menu-item">
+                                <i class="bx bx-heart"></i>
+                                <span>Wishlist</span>
+                                <i class="bx bx-chevron-right"></i>
+                            </a>
+                            <a href="#" class="account-menu-item">
+                                <i class="bx bx-map"></i>
+                                <span>Addresses</span>
+                                <i class="bx bx-chevron-right"></i>
+                            </a>
+                            <a href="#" class="account-menu-item">
+                                <i class="bx bx-cog"></i>
+                                <span>Settings</span>
+                                <i class="bx bx-chevron-right"></i>
+                            </a>
+                        </div>
+                        
+                        <a href="/api/logout" class="logout-btn">
+                            <i class="bx bx-log-out"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Wishlist panel -->
+                <div class="panel" id="panel-wishlist" role="tabpanel" aria-hidden="true">
+                    <ul class="wishlist-items">
+                        <li class="empty-wishlist">No items yet — start adding favorites.</li>
+                    </ul>
+                </div>
+
+                
+                <!-- Cart panel -->
+                <div class="panel" id="panel-cart" role="tabpanel" aria-hidden="true">
+                    
+                    <ul class="cart-items">
+                        <li class="cart-item">
+                            <img src="" alt="item">
+                            <div class="meta">
+                                <div class="title">Sample Product</div>
+                                <div class="price">$0.00</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cart-footer">
+                        <div class="subtotal"><span>Subtotal</span><span>$0.00</span></div>
+                        <button class="checkout">Proceed to checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sidebar-overlay" class="sidebar-overlay" data-close-overlay></div>
+
+        <div class="promobar">
+            <p class="promotext" >HOLIDAY SALE! - Upto 50% off | SHOP NOW!</p>
+        </div>
+
+        <div class="hero">
+            
+        </div>
+        <!-- category boxes placed under the hero -->
+        <section class="categories" aria-label="Shop categories">
+            <article class="category">
+                <img src="GQR-September-Colognes-3490.webp" alt="Men's watches">
+                <div class="label">Men's Fragrances</div>
+            </article>
+            <article class="category">
+                <img src="f4f2e54d380f1a2bedefd7a9b0eb8471.jpg" alt="Ladies watches">
+                <div class="label">Ladies Fragrances</div>
+            </article>
+            <article class="category">
+                <img src="e0d29c60e373aa0f0127271fe36a031c.jpg" alt="Unisex">
+                <div class="label">Unisex Fragrances</div>
+            </article>
+            <article class="category">
+                <img src="10be7784e98463b68109a9770f52e976.jpg" alt="Niche Artisan">
+                <div class="label">Niche Artisan</div>
+            </article>
+            <article class="category">
+                <img src="f3c56182b6f5768acdd2274a4fc48b83.jpg" alt="Designer Fragrances">
+                <div class="label">Designer fragrances</div>
+            </article>
+            <article class="category">
+                <img src="BR_September_Sale_Banner_Mobile_780x.webp" alt="Sale">
+                <div class="label">Sale & Events</div>
+                
+            </article>
+
+        </section>
+
+                <!-- brand buttons: horizontally scrollable list of popular perfume brands -->
+                <div class="brand-row" aria-label="Popular perfume brands">
+                    <div class="brand-row-inner">
+                        <button class="brand-btn" type="button">Chanel <span class="chev">›</span></button>
+                        <button class="brand-btn" type="button">Dior <span class="chev">›</span></button>
+                        <button class="brand-btn" type="button">Gucci <span class="chev">›</span></button>
+                        <button class="brand-btn" type="button">Tom Ford <span class="chev">›</span></button>
+                        <button class="brand-btn" type="button">Creed <span class="chev">›</span></button>
+                        <button class="brand-btn" type="button">Byredo <span class="chev">›</span></button>
+                        <button class="brand-btn" type="button">Amouage <span class="chev">›</span></button>
+                        <button class="brand-btn" type="button">Maison Francis Kurkdjian <span class="chev">›</span></button>
+                        <button class="brand-btn" type="button">Yves Saint Laurent <span class="chev">›</span></button>
+                        <button class="brand-btn" type="button">Lancôme <span class="chev">›</span></button>
+                        <button class="brand-btn" type="button">All Brands <span class="chev">›</span></button>
+                    </div>
+                </div>
+
+                <!-- Featured Daily Deals section -->
+                <section class="featured-deals" aria-label="Featured Daily Deals">
+                    <div class="featured-deals-header">
+                        <div class="header-accent">
+                            <span class="accent-line"></span>
+                            <div class="header-icon"><i class="bx bxs-offer"></i></div>
+                            <span class="accent-line"></span>
+                        </div>
+                        <h2>Featured <span>Daily Deals</span></h2>
+                        <p class="subtitle">Exclusive savings on premium fragrances</p>
+                    </div>
+                    <div class="deals-grid">
+                        <article class="deal-card" data-product-id="chanel-no5">
+                            <div class="card-image-wrapper">
+                                <img src="f1f3f6821b5de474ecd36f8a4a682fad-removebg-preview.png" alt="Chanel No. 5">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Chanel</h3>
+                            <p class="product-name">No. 5 Eau de Parfum</p>
+                            <p class="discount">20% Off</p>
+                            <p class="original-price">$99.99</p>
+                            <p class="discounted-price">$79.99</p>
+                        </article>
+                        <article class="deal-card" data-product-id="dior-sauvage">
+                            <div class="card-image-wrapper">
+                                <img src="42cace049481c3f56630f88bf81d1053-removebg-preview.png" alt="Dior Sauvage">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Dior</h3>
+                            <p class="product-name">Sauvage Eau de Toilette</p>
+                            <p class="discount">15% Off</p>
+                            <p class="original-price">$89.99</p>
+                            <p class="discounted-price">$76.49</p>
+                        </article>
+                        <article class="deal-card" data-product-id="gucci-guilty">
+                            <div class="card-image-wrapper">
+                                <img src="dc3139a853ed2108cd2985c6c39d87f5-removebg-preview.png" alt="Gucci Guilty">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Gucci</h3>
+                            <p class="product-name">Guilty Eau de Toilette</p>
+                            <p class="discount">25% Off</p>
+                            <p class="original-price">$79.99</p>
+                            <p class="discounted-price">$59.99</p>
+                        </article>
+                        <article class="deal-card" data-product-id="tomford-oudwood">
+                            <div class="card-image-wrapper">
+                                <img src="021cdb0c93502fb1cd62f5031f183e86-removebg-preview.png" alt="Tom Ford Oud Wood">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Tom Ford</h3>
+                            <p class="product-name">Oud Wood Eau de Parfum</p>
+                            <p class="discount">30% Off</p>
+                            <p class="original-price">$149.99</p>
+                            <p class="discounted-price">$104.99</p>
+                        </article>
+                        <article class="deal-card" data-product-id="creed-aventus">
+                            <div class="card-image-wrapper">
+                                <img src="0c9588340c638ffa0701e02cf0445425-removebg-preview.png" alt="Creed Aventus">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Creed</h3>
+                            <p class="product-name">Aventus Eau de Parfum</p>
+                            <p class="discount">25% Off</p>
+                            <p class="original-price">$299.99</p>
+                            <p class="discounted-price">$224.99</p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Gift Sets Section -->
+                <section class="gift-sets" aria-label="Gift Sets">
+                    <div class="gift-header">
+                        <div class="gift-header-top">
+                            <span class="header-accent-line"></span>
+                            <span class="gift-icon"><i class="bx bx-gift"></i></span>
+                            <span class="header-accent-line"></span>
+                        </div>
+                        <h2>Luxury Gift Sets</h2>
+                        <div class="gift-header-divider">
+                            <span class="divider-dot"></span>
+                            <span class="divider-line"></span>
+                            <span class="divider-diamond"></span>
+                            <span class="divider-line"></span>
+                            <span class="divider-dot"></span>
+                        </div>
+                        <p class="section-subtitle">Curated collections for unforgettable moments</p>
+                    </div>
+                    <div class="gift-sets-grid">
+                        <article class="gift-card" data-product-id="chanel-giftset">
+                            <div class="gift-badge">Best Seller</div>
+                            <div class="card-image-wrapper">
+                                <img src="0d1748ef5c55e57eb3907424e30ed552-removebg-preview.png" alt="Chanel Gift Set">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Chanel</h3>
+                            <p class="product-name">N°5 Holiday Gift Set</p>
+                            <p class="gift-includes">Includes: EDP 100ml + Body Lotion + Mini</p>
+                            <p class="gift-price">$189.99</p>
+                        </article>
+                        <article class="gift-card" data-product-id="dior-giftset">
+                            <div class="gift-badge">New</div>
+                            <div class="card-image-wrapper">
+                                <img src="07c899097d9a36ba82000e37adac525a-removebg-preview.png" alt="Dior Gift Set">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Dior</h3>
+                            <p class="product-name">Sauvage Luxury Set</p>
+                            <p class="gift-includes">Includes: EDT 100ml + Shower Gel + Deodorant</p>
+                            <p class="gift-price">$159.99</p>
+                        </article>
+                        <article class="gift-card" data-product-id="tomford-giftset">
+                            <div class="gift-badge">Limited Edition</div>
+                            <div class="card-image-wrapper">
+                                <img src="ccc8b654a602cbf2b5ae2192bd535e27-removebg-preview.png" alt="Tom Ford Gift Set">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Tom Ford</h3>
+                            <p class="product-name">Private Blend Collection</p>
+                            <p class="gift-includes">Includes: 3 x 10ml Travel Sprays</p>
+                            <p class="gift-price">$199.99</p>
+                        </article>
+                        <article class="gift-card" data-product-id="gucci-giftset">
+                            <div class="gift-badge">Value Set</div>
+                            <div class="card-image-wrapper">
+                                <img src="8519efaa4b72764fc7790d128cbcebfe-removebg-preview.png" alt="Gucci Gift Set">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Gucci</h3>
+                            <p class="product-name">Bloom Deluxe Gift Set</p>
+                            <p class="gift-includes">Includes: EDP 100ml + Body Oil + Rollerball</p>
+                            <p class="gift-price">$175.99</p>
+                        </article>
+                    </div>
+                    <a href="catalog.html?category=giftset" class="view-all-btn">View All Gift Sets</a>
+                </section>
+
+                <!-- Trending Now Section -->
+                <section class="trending-section" aria-label="Trending Now">
+                    <div class="trending-header">
+                        <div class="trending-top-accent">
+                            <div class="trending-accent-line"></div>
+                            <div class="trending-badge"><i class="bx bxs-hot"></i> What's Hot</div>
+                            <div class="trending-accent-line right"></div>
+                        </div>
+                        <h2>Trending <span>Now</span></h2>
+                        <div class="trending-line"></div>
+                        <p class="trending-subtitle">Discover the fragrances everyone is talking about</p>
+                    </div>
+                    <div class="trending-grid">
+                        <article class="trending-card" data-product-id="chanel-no5-trending">
+                            <div class="card-image-wrapper">
+                                <img src="f1f3f6821b5de474ecd36f8a4a682fad-removebg-preview.png" alt="Chanel No. 5">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Chanel</h3>
+                            <p class="product-name">No. 5 EDP</p>
+                            <p class="trending-price">$99.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="dior-sauvage-trending">
+                            <div class="card-image-wrapper">
+                                <img src="42cace049481c3f56630f88bf81d1053-removebg-preview.png" alt="Dior Sauvage">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Dior</h3>
+                            <p class="product-name">Sauvage EDT</p>
+                            <p class="trending-price">$89.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="gucci-guilty-trending">
+                            <div class="card-image-wrapper">
+                                <img src="dc3139a853ed2108cd2985c6c39d87f5-removebg-preview.png" alt="Gucci Guilty">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Gucci</h3>
+                            <p class="product-name">Guilty EDT</p>
+                            <p class="trending-price">$79.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="tomford-oudwood-trending">
+                            <div class="card-image-wrapper">
+                                <img src="021cdb0c93502fb1cd62f5031f183e86-removebg-preview.png" alt="Tom Ford">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Tom Ford</h3>
+                            <p class="product-name">Oud Wood</p>
+                            <p class="trending-price">$149.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="creed-aventus-trending">
+                            <div class="card-image-wrapper">
+                                <img src="0c9588340c638ffa0701e02cf0445425-removebg-preview.png" alt="Creed Aventus">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Creed</h3>
+                            <p class="product-name">Aventus EDP</p>
+                            <p class="trending-price">$299.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="versace-eros">
+                            <div class="card-image-wrapper">
+                                <img src="0d1748ef5c55e57eb3907424e30ed552-removebg-preview.png" alt="Versace">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Versace</h3>
+                            <p class="product-name">Eros EDT</p>
+                            <p class="trending-price">$85.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="ysl-libre">
+                            <div class="card-image-wrapper">
+                                <img src="07c899097d9a36ba82000e37adac525a-removebg-preview.png" alt="YSL">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>YSL</h3>
+                            <p class="product-name">Libre EDP</p>
+                            <p class="trending-price">$125.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="armani-acquadigio">
+                            <div class="card-image-wrapper">
+                                <img src="ccc8b654a602cbf2b5ae2192bd535e27-removebg-preview.png" alt="Armani">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Armani</h3>
+                            <p class="product-name">Acqua di Gio</p>
+                            <p class="trending-price">$95.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="prada-lunarossa">
+                            <div class="card-image-wrapper">
+                                <img src="8519efaa4b72764fc7790d128cbcebfe-removebg-preview.png" alt="Prada">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Prada</h3>
+                            <p class="product-name">Luna Rossa</p>
+                            <p class="trending-price">$110.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="burberry-her">
+                            <div class="card-image-wrapper">
+                                <img src="f1f3f6821b5de474ecd36f8a4a682fad-removebg-preview.png" alt="Burberry">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Burberry</h3>
+                            <p class="product-name">Her EDP</p>
+                            <p class="trending-price">$105.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="dg-lightblue">
+                            <div class="card-image-wrapper">
+                                <img src="42cace049481c3f56630f88bf81d1053-removebg-preview.png" alt="Dolce Gabbana">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>D&G</h3>
+                            <p class="product-name">Light Blue</p>
+                            <p class="trending-price">$78.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="hugoboss-bottled">
+                            <div class="card-image-wrapper">
+                                <img src="dc3139a853ed2108cd2985c6c39d87f5-removebg-preview.png" alt="Hugo Boss">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Hugo Boss</h3>
+                            <p class="product-name">Bottled EDP</p>
+                            <p class="trending-price">$72.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="jomalone-woodsage">
+                            <div class="card-image-wrapper">
+                                <img src="021cdb0c93502fb1cd62f5031f183e86-removebg-preview.png" alt="Jo Malone">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Jo Malone</h3>
+                            <p class="product-name">Wood Sage</p>
+                            <p class="trending-price">$145.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="byredo-gypsywater">
+                            <div class="card-image-wrapper">
+                                <img src="0c9588340c638ffa0701e02cf0445425-removebg-preview.png" alt="Byredo">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Byredo</h3>
+                            <p class="product-name">Gypsy Water</p>
+                            <p class="trending-price">$185.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="lelabo-santal33">
+                            <div class="card-image-wrapper">
+                                <img src="0d1748ef5c55e57eb3907424e30ed552-removebg-preview.png" alt="Le Labo">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Le Labo</h3>
+                            <p class="product-name">Santal 33</p>
+                            <p class="trending-price">$195.99</p>
+                        </article>
+                        <article class="trending-card" data-product-id="margiela-replicajazz">
+                            <div class="card-image-wrapper">
+                                <img src="07c899097d9a36ba82000e37adac525a-removebg-preview.png" alt="Maison Margiela">
+                                <div class="card-actions">
+                                    <button class="action-btn wishlist-btn" data-action="wishlist" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
+                                    <button class="action-btn cart-btn" data-action="add-to-cart" title="Add to Cart"><i class="bx bx-shopping-bag"></i></button>
+                                </div>
+                            </div>
+                            <h3>Margiela</h3>
+                            <p class="product-name">Replica Jazz</p>
+                            <p class="trending-price">$135.99</p>
+                        </article>
+                        <article class="trending-card">
+                            <img src="ccc8b654a602cbf2b5ae2192bd535e27-removebg-preview.png" alt="Diptyque">
+                            <h3>Diptyque</h3>
+                            <p class="product-name">Philosykos</p>
+                            <p class="trending-price">$165.99</p>
+                        </article>
+                        <article class="trending-card">
+                            <img src="8519efaa4b72764fc7790d128cbcebfe-removebg-preview.png" alt="Amouage">
+                            <h3>Amouage</h3>
+                            <p class="product-name">Reflection Man</p>
+                            <p class="trending-price">$280.99</p>
+                        </article>
+                        <article class="trending-card">
+                            <img src="f1f3f6821b5de474ecd36f8a4a682fad-removebg-preview.png" alt="Parfums de Marly">
+                            <h3>PDM</h3>
+                            <p class="product-name">Layton EDP</p>
+                            <p class="trending-price">$265.99</p>
+                        </article>
+                        <article class="trending-card">
+                            <img src="42cace049481c3f56630f88bf81d1053-removebg-preview.png" alt="Initio">
+                            <h3>Initio</h3>
+                            <p class="product-name">Side Effect</p>
+                            <p class="trending-price">$310.99</p>
+                        </article>
+                        <article class="trending-card">
+                            <img src="dc3139a853ed2108cd2985c6c39d87f5-removebg-preview.png" alt="Xerjoff">
+                            <h3>Xerjoff</h3>
+                            <p class="product-name">Naxos EDP</p>
+                            <p class="trending-price">$295.99</p>
+                        </article>
+                        <article class="trending-card">
+                            <img src="021cdb0c93502fb1cd62f5031f183e86-removebg-preview.png" alt="Roja Parfums">
+                            <h3>Roja</h3>
+                            <p class="product-name">Elysium</p>
+                            <p class="trending-price">$350.99</p>
+                        </article>
+                        <article class="trending-card">
+                            <img src="0c9588340c638ffa0701e02cf0445425-removebg-preview.png" alt="Nishane">
+                            <h3>Nishane</h3>
+                            <p class="product-name">Hacivat</p>
+                            <p class="trending-price">$220.99</p>
+                        </article>
+                        <article class="trending-card">
+                            <img src="0d1748ef5c55e57eb3907424e30ed552-removebg-preview.png" alt="MFK">
+                            <h3>MFK</h3>
+                            <p class="product-name">Baccarat 540</p>
+                            <p class="trending-price">$325.99</p>
+                        </article>
+                        <article class="trending-card">
+                            <img src="07c899097d9a36ba82000e37adac525a-removebg-preview.png" alt="Kilian">
+                            <h3>Kilian</h3>
+                            <p class="product-name">Love Don't Be Shy</p>
+                            <p class="trending-price">$275.99</p>
+                        </article>
+                    </div>
+                    <a href="catalog.html" class="view-all-btn">Explore All Products</a>
+                </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Scentorium BD</h3>
+                <p>Your premier destination for luxury fragrances in Bangladesh. Discover the finest scents from around the world.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="catalog.html">Shop</a></li>
+                    <li><a href="sale.html">Sale</a></li>
+                    <li><a href="track.html">Track Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe to get special offers and updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Scentorium BD. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    </body>
+
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Scentorium BD</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <div class="top-marquee" role="region" aria-label="Site announcements">
+        <div class="marquee-track">FREE SHIPPING ON ORDERS OVER $50 — HOLIDAY SALE: UP TO 50% OFF SELECTED ITEMS — NEW ARRIVALS WEEKLY!</div>
+    </div>
+
+    <header>
+        <a href="index.html"><h1>Scentorium BD</h1></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="shopbybrand.html">Shop By Brand</a></li>
+                <li><a href="catalog.html?category=men">Men</a></li>
+                <li><a href="catalog.html?category=women">Women</a></li>
+                <li><a href="catalog.html?category=unisex">Unisex</a></li>
+                <li><a href="catalog.html">Gift Set</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="track.html">Track</a></li>
+                <li><a href="sale.html">Sale</a></li>
+            </ul>
+        </nav>
+        <form class="search-form" action="#" method="get" role="search">
+            <input type="search" name="q" placeholder="Search..." aria-label="Search">
+            <button type="submit">Search</button>
+        </form>
+
+        <div class="header-right" aria-hidden="false">
+            <div class="header-actions">
+                <button type="button" class="action-btn account" data-sidebar="main-sidebar" data-tab="account" aria-label="Account" aria-controls="panel-account">
+                    <i class="bx bx-user-circle" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="action-btn wishlist" data-sidebar="main-sidebar" data-tab="wishlist" aria-label="Wishlist" aria-controls="panel-wishlist">
+                    <i class="bx bx-heart" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="action-btn cart" data-sidebar="main-sidebar" data-tab="cart" aria-label="Cart" aria-controls="panel-cart">
+                    <i class="bx bx-shopping-bag" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="main-sidebar" class="sidebar" aria-hidden="true">
+        <div class="sidebar-top">
+            <h2 id="sidebar-title">Your panel</h2>
+            <button class="close-btn" data-close="main-sidebar" aria-label="Close panel">
+                <i class="bx bx-x" aria-hidden="true"></i>
+                <span class="visually-hidden">Close</span>
+            </button>
+        </div>
+        <div class="sidebar-tabs-row">
+            <div class="sidebar-tabs" role="tablist" aria-label="Sidebar panels">
+                <button type="button" class="tab-btn" data-tab="account" role="tab" aria-selected="false" aria-controls="panel-account">
+                    <i class="bx bx-user-circle" aria-hidden="true"></i>
+                    <span class="tab-label">Account</span>
+                </button>
+                <button type="button" class="tab-btn" data-tab="wishlist" role="tab" aria-selected="false" aria-controls="panel-wishlist">
+                    <i class="bx bx-heart" aria-hidden="true"></i>
+                    <span class="tab-label">Wishlist</span>
+                </button>
+                <button type="button" class="tab-btn" data-tab="cart" role="tab" aria-selected="false" aria-controls="panel-cart">
+                    <i class="bx bx-shopping-bag" aria-hidden="true"></i>
+                    <span class="tab-label">Cart</span>
+                </button>
+            </div>
+        </div>
+        <div class="sidebar-content">
+            <div class="panel" id="panel-account" role="tabpanel" aria-hidden="true">
+                <h3>Sign in to your account</h3>
+                <form id="account-form" class="account-form" action="#" method="post">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required placeholder="you@example.com">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" required placeholder="••••••••">
+                    <div class="form-row">
+                        <label class="checkbox"><input type="checkbox" name="remember"> Remember me</label>
+                        <a href="#" class="forgot">Forgot?</a>
+                    </div>
+                    <button type="submit" class="primary">Sign in</button>
+                    <p class="muted">New here? <a href="#">Create an account</a></p>
+                </form>
+            </div>
+            <div class="panel" id="panel-wishlist" role="tabpanel" aria-hidden="true">
+                <ul class="wishlist-items">
+                    <li class="empty-wishlist">No items yet — start adding favorites.</li>
+                </ul>
+            </div>
+            <div class="panel" id="panel-cart" role="tabpanel" aria-hidden="true">
+                <ul class="cart-items">
+                    <li class="empty-cart">Your cart is empty.</li>
+                </ul>
+                <div class="cart-footer">
+                    <div class="subtotal"><span>Subtotal</span><span>$0.00</span></div>
+                    <button class="checkout">Proceed to checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar-overlay" class="sidebar-overlay" data-close-overlay></div>
+
+    <main class="about-page">
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <div class="hero-badge">Est. 2020</div>
+                <h1>The Art of <span>Fragrance</span></h1>
+                <p>Where passion meets perfumery. We curate the world's finest scents to help you discover your signature essence.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Premium Fragrances</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Luxury Brands</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-hero-visual">
+                <div class="hero-image-wrapper">
+                    <img src="front-view-perfume-bottle-flowers-light-blue-background-free-space.jpg" alt="Luxury perfume collection">
+                    <div class="floating-accent accent-1"></div>
+                    <div class="floating-accent accent-2"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-story">
+            <div class="story-container">
+                <div class="story-header">
+                    <span class="section-tag">Our Story</span>
+                    <h2>A Journey of <span>Passion</span></h2>
+                    <div class="header-line"></div>
+                </div>
+                <div class="story-content">
+                    <div class="story-text">
+                        <p class="lead">Scentorium BD was born from a deep love for the art of perfumery and a vision to bring world-class fragrances to Bangladesh.</p>
+                        <p>What started as a personal collection grew into a mission — to curate authentic, luxurious scents from the most prestigious perfume houses across the globe. We believe that fragrance is more than just a scent; it's an expression of identity, a memory captured in a bottle, and an invisible accessory that completes every outfit.</p>
+                        <p>Today, we proudly serve thousands of fragrance enthusiasts, offering everything from iconic designer classics to exclusive niche creations that you won't find anywhere else.</p>
+                    </div>
+                    <div class="story-image">
+                        <img src="Luxury_perfume_product_photo_19706da5.png" alt="Luxury perfume">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-values">
+            <div class="values-container">
+                <div class="values-header">
+                    <span class="section-tag">What Drives Us</span>
+                    <h2>Our Core <span>Values</span></h2>
+                    <div class="header-line"></div>
+                </div>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="bx bx-check-shield"></i>
+                        </div>
+                        <h3>100% Authentic</h3>
+                        <p>Every fragrance we sell is guaranteed authentic, sourced directly from authorized distributors and brand partners.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="bx bx-diamond"></i>
+                        </div>
+                        <h3>Curated Excellence</h3>
+                        <p>We handpick each fragrance in our collection, ensuring only the finest quality and most sought-after scents make the cut.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="bx bx-heart"></i>
+                        </div>
+                        <h3>Customer First</h3>
+                        <p>Your satisfaction is our priority. From personalized recommendations to hassle-free returns, we've got you covered.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="bx bx-leaf"></i>
+                        </div>
+                        <h3>Sustainable Luxury</h3>
+                        <p>We partner with brands that prioritize ethical sourcing and eco-friendly practices without compromising on luxury.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-why">
+            <div class="why-container">
+                <div class="why-content">
+                    <span class="section-tag">The Scentorium Difference</span>
+                    <h2>Why Choose <span>Us</span></h2>
+                    <div class="header-line left"></div>
+                    <ul class="why-list">
+                        <li>
+                            <i class="bx bx-check-circle"></i>
+                            <div>
+                                <strong>Verified Authentic Products</strong>
+                                <p>Every bottle comes with authenticity guarantee and original packaging</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bx bx-check-circle"></i>
+                            <div>
+                                <strong>Expert Fragrance Consultation</strong>
+                                <p>Our team helps you find the perfect scent for any occasion</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bx bx-check-circle"></i>
+                            <div>
+                                <strong>Nationwide Fast Delivery</strong>
+                                <p>Quick and secure shipping across Bangladesh with tracking</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bx bx-check-circle"></i>
+                            <div>
+                                <strong>Competitive Pricing</strong>
+                                <p>Luxury fragrances at the best prices with regular discounts</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="why-visual">
+                    <div class="why-image-grid">
+                        <img src="Crystal_faceted_perfume_bottle_b9d781aa.png" alt="Crystal perfume">
+                        <img src="Elegant_women's_perfume_bottle_4f140e37.png" alt="Elegant perfume">
+                        <img src="Dark_men's_fragrance_bottle_35358bc3.png" alt="Men's fragrance">
+                        <img src="Rose_gold_women's_perfume_b832ddfa.png" alt="Rose gold perfume">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-cta">
+            <div class="cta-container">
+                <div class="cta-content">
+                    <h2>Ready to Find Your <span>Signature Scent?</span></h2>
+                    <p>Explore our curated collection of luxury fragrances and discover the perfect scent that tells your story.</p>
+                    <div class="cta-buttons">
+                        <a href="catalog.html" class="cta-btn primary">Shop Collection</a>
+                        <a href="mailto:hello@scentorium.bd" class="cta-btn secondary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Scentorium BD</h3>
+                <p>Your premier destination for luxury fragrances in Bangladesh. Discover the finest scents from around the world.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="catalog.html">Shop</a></li>
+                    <li><a href="sale.html">Sale</a></li>
+                    <li><a href="track.html">Track Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe to get special offers and updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Scentorium BD. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

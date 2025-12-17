@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Scentorium</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="bar">
+        <div class="center">Premium Fragrances</div>
+        <div class="right">Free Shipping $50+</div>
+    </div>
+
+    <header class="header">
+        <h1><a href="index.html">Scentorium</a></h1>
+        <nav class="nav2-links">
+            <div class="search-container">
+                <form class="search-form" action="/search" method="GET">
+                    <input type="text" name="q" placeholder="Search...">
+                    <button type="submit"><i class='bx bx-search-alt' style='color:#003825; font-size: 18px;'></i></button>
+                </form>
+            </div>
+            <ul>
+                <li><a href="#login"><i class='bx bx-user' style='color:#003825; margin-right: 5px; font-size: 27px;'></i></a></li>
+                <li>
+                    <a href="#wishlist" id="wishlistTrigger" style="position: relative;">
+                        <i class='bx bx-heart' style='color:#003825; font-size: 24px;'></i>
+                        <span class="wishlist-count" id="wishlistCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="checkout.html" id="cartTrigger" style="position: relative;">
+                        <i class='bx bx-shopping-bag' style='color:#003825; font-size: 24px;'></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <nav class="nav1-links">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#sale" class="REDSALE">Sale</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+        <nav class="breadcrumb">
+            <ol>
+                <li><a href="index.html"><i class='bx bx-home'></i> Home</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><span id="productBreadcrumb">Product</span></li>
+            </ol>
+        </nav>
+    </div>
+
+    <main class="product-container">
+        <div class="product-details">
+            <!-- Product Images -->
+            <div class="product-images">
+                <div class="main-image" id="mainImageContainer">
+                    <div class="product-image-placeholder" id="mainImagePlaceholder">
+                        <i class='bx bx-gift' style="font-size: 80px; color: #9ca3af;"></i>
+                        <p style="margin-top: 16px; color: #6b7280; font-size: 14px;">Product Image</p>
+                    </div>
+                    <div class="product-badges" id="productBadges"></div>
+                    <button class="wishlist-btn-large" id="wishlistBtnLarge">
+                        <i class='bx bx-heart'></i>
+                    </button>
+                </div>
+                <div class="thumbnail-images" id="thumbnailContainer">
+                    <div class="thumbnail active">
+                        <div class="thumbnail-placeholder">
+                            <i class='bx bx-image' style="font-size: 24px; color: #9ca3af;"></i>
+                        </div>
+                    </div>
+                    <div class="thumbnail">
+                        <div class="thumbnail-placeholder">
+                            <i class='bx bx-image' style="font-size: 24px; color: #9ca3af;"></i>
+                        </div>
+                    </div>
+                    <div class="thumbnail">
+                        <div class="thumbnail-placeholder">
+                            <i class='bx bx-image' style="font-size: 24px; color: #9ca3af;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Information -->
+            <div class="product-info">
+                <div class="product-header">
+                    <div class="brand-name" id="productBrand">BRAND</div>
+                    <h1 class="product-title" id="productTitle">Product Name</h1>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <span class="rating-text">(4.5/5) • 127 reviews</span>
+                    </div>
+                </div>
+
+                <div class="product-pricing">
+                    <div class="price-section">
+                        <span class="current-price" id="currentPrice">$0.00</span>
+                        <span class="original-price" id="originalPrice" style="display: none;">$0.00</span>
+                        <span class="discount-badge" id="discountBadge" style="display: none;">0% OFF</span>
+                    </div>
+                    <div class="savings-info" id="savingsInfo" style="display: none;">
+                        You save $0.00
+                    </div>
+                </div>
+
+                <div class="product-description">
+                    <p id="productDescription">Product description will be loaded here...</p>
+                </div>
+
+                <div class="product-options">
+                    <div class="size-selector">
+                        <label>Size:</label>
+                        <div class="size-options" id="sizeOptions">
+                            <button class="size-option active" data-size="50ml">50ml</button>
+                            <button class="size-option" data-size="100ml">100ml</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label>Quantity:</label>
+                        <div class="quantity-controls">
+                            <button class="qty-btn minus" id="qtyMinus">-</button>
+                            <input type="number" id="quantity" value="1" min="1" max="10">
+                            <button class="qty-btn plus" id="qtyPlus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-actions">
+                    <button class="add-to-cart-btn-large" id="addToCartLarge">
+                        <i class='bx bx-shopping-bag'></i>
+                        Add to Cart
+                    </button>
+                    <button class="buy-now-btn" id="buyNowBtn">
+                        <i class='bx bx-credit-card'></i>
+                        Buy Now
+                    </button>
+                </div>
+
+                <div class="product-features">
+                    <div class="feature">
+                        <i class='bx bx-shield-check'></i>
+                        <span>100% Authentic</span>
+                    </div>
+                    <div class="feature">
+                        <i class='bx bx-package'></i>
+                        <span>Free Shipping over $50</span>
+                    </div>
+                    <div class="feature">
+                        <i class='bx bx-refresh'></i>
+                        <span>30-day Return Policy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Tabs -->
+        <div class="product-tabs">
+            <div class="tab-headers">
+                <button class="tab-header active" data-tab="description">Description</button>
+                <button class="tab-header" data-tab="notes">Fragrance Notes</button>
+                <button class="tab-header" data-tab="reviews">Reviews</button>
+                <button class="tab-header" data-tab="shipping">Shipping & Returns</button>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="description">
+                    <h3>Product Description</h3>
+                    <p id="fullDescription">Detailed product description will be loaded here...</p>
+                </div>
+
+                <div class="tab-pane" id="notes">
+                    <h3>Fragrance Notes</h3>
+                    <div class="notes-section">
+                        <div class="note-category">
+                            <h4>Top Notes</h4>
+                            <p>Bergamot, Lemon, Pink Pepper</p>
+                        </div>
+                        <div class="note-category">
+                            <h4>Heart Notes</h4>
+                            <p>Lavender, Geranium, Elemi</p>
+                        </div>
+                        <div class="note-category">
+                            <h4>Base Notes</h4>
+                            <p>Ambroxan, Cedar, Labdanum</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="reviews">
+                    <h3>Customer Reviews</h3>
+                    <div class="reviews-summary">
+                        <div class="overall-rating">
+                            <span class="rating-number">4.5</span>
+                            <div class="stars">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bx-star'></i>
+                            </div>
+                            <span class="total-reviews">Based on 127 reviews</span>
+                        </div>
+                    </div>
+                    <div class="reviews-list">
+                        <div class="review">
+                            <div class="review-header">
+                                <span class="reviewer-name">Sarah M.</span>
+                                <div class="stars">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                </div>
+                            </div>
+                            <p class="review-text">Amazing fragrance! Long-lasting and perfect for everyday wear. Highly recommend!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="shipping">
+                    <h3>Shipping & Returns</h3>
+                    <div class="shipping-info">
+                        <h4>Shipping Options</h4>
+                        <ul>
+                            <li>Free Standard Shipping (5-7 business days) on orders over $50</li>
+                            <li>Express Shipping (2-3 business days) - $9.99</li>
+                            <li>Next Day Delivery - $19.99</li>
+                        </ul>
+
+                        <h4>Return Policy</h4>
+                        <ul>
+                            <li>30-day return policy for unopened items</li>
+                            <li>Free returns on defective products</li>
+                            <li>Original packaging required</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="related-products">
+            <h2>Related Products</h2>
+            <div class="related-products-grid" id="relatedProductsGrid">
+                <!-- Related products will be populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-sidebar-header">
+            <div class="cart-header-links">
+                <span>Wishlist(0)</span>
+                <span>My Account</span>
+                <span class="active">Bag(0)</span>
+            </div>
+            <button class="cart-sidebar-close" id="cartSidebarClose">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+        
+        <div class="cart-sidebar-body">
+            <div class="cart-items-list" id="cartItemsList">
+                <div class="cart-empty-state" id="cartEmptyState">
+                    <div class="empty-bag-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.5 7.5C7.5 5.01472 9.51472 3 12 3C14.4853 3 16.5 5.01472 16.5 7.5V8.5H19C19.5523 8.5 20 8.94772 20 9.5V19C20 20.1046 19.1046 21 18 21H6C4.89543 21 4 20.1046 4 19V9.5C4 8.94772 4.44772 8.5 5 8.5H7.5V7.5Z" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="9" cy="14" r="0.5" fill="currentColor"/>
+                            <circle cx="15" cy="14" r="0.5" fill="currentColor"/>
+                            <path d="M9 16.5C9.91667 17.1667 11.0833 17.1667 12 16.5C12.9167 17.1667 14.0833 17.1667 15 16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Your shopping bag is empty</h3>
+                    <p>You have no items in your shopping bag. Let's go buy something!</p>
+                    <button class="continue-shopping-btn" id="continueShopping">
+                        Continue Shopping
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cart-sidebar-footer" id="cartSidebarFooter" style="display: none;">
+            <div class="cart-total-section">
+                <div class="cart-subtotal">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">$0.00</span>
+                </div>
+                <div class="cart-total-final">
+                    <span>Total:</span>
+                    <span id="cartSidebarTotal">$0.00</span>
+                </div>
+            </div>
+            
+            <button class="cart-checkout-btn" id="cartSidebarCheckout">
+                <i class='bx bx-lock'></i>
+                Secure Checkout
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="product.js"></script>
+</body>
+</html>

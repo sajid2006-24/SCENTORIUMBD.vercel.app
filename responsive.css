@@ -1,0 +1,1701 @@
+/* ============================================================
+   SCENTORIUM BD - COMPREHENSIVE RESPONSIVE STYLESHEET
+   ============================================================
+   
+   This stylesheet handles all responsive behaviors for the site
+   across different device types and screen sizes.
+   
+   BREAKPOINTS REFERENCE:
+   - Extra Large Desktops: 1400px and above
+   - Large Desktops: 1200px - 1399px
+   - Medium Desktops: 992px - 1199px
+   - Tablets Landscape: 768px - 991px
+   - Tablets Portrait: 576px - 767px
+   - Mobile Large: 480px - 575px
+   - Mobile Small: 320px - 479px
+   
+   ============================================================ */
+
+
+/* ============================================================
+   SECTION 1: BASE RESPONSIVE UTILITIES
+   ============================================================
+   Core responsive utilities and helpers
+   ============================================================ */
+
+/* Ensure proper touch behavior on mobile */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* Smooth scrolling for all devices */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improve tap targets for touch devices */
+@media (hover: none) and (pointer: coarse) {
+    button, 
+    .action-btn,
+    .navbar a,
+    .brand-btn,
+    .filter-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 2: HEADER & NAVIGATION RESPONSIVE
+   ============================================================
+   Navigation bar, search, and header controls responsiveness
+   ============================================================ */
+
+/* Large Desktop - 1400px and above */
+@media (min-width: 1400px) {
+    header {
+        padding: 20px 40px;
+    }
+    
+    .search-form {
+        width: min(1000px, calc(100% - 300px));
+    }
+    
+    .search-form input[type="search"] {
+        width: 100%;
+    }
+}
+
+/* Medium Desktop - 1200px to 1399px */
+@media (max-width: 1399px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+    
+    .navbar a {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+    
+    .search-form {
+        width: min(700px, calc(100% - 200px));
+    }
+    
+    .search-form input[type="search"] {
+        width: 100%;
+        max-width: 700px;
+    }
+}
+
+/* Tablet Landscape - 992px to 1199px */
+@media (max-width: 1199px) {
+    header {
+        padding: 12px;
+    }
+    
+    .navbar {
+        padding: 8px 16px;
+        margin: 20px auto;
+    }
+    
+    .navbar a {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+    
+    .search-form {
+        position: relative;
+        left: 0;
+        transform: none;
+        top: 10px;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .search-form input[type="search"] {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .header-right {
+        position: relative;
+        right: auto;
+        top: auto;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+    
+    header h1, .site-title {
+        font-size: 20px;
+    }
+}
+
+/* Tablet Portrait - 768px to 991px */
+@media (max-width: 991px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 12px 16px;
+        gap: 12px;
+    }
+    
+    header h1, .site-title {
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .navbar {
+        order: 2;
+        width: auto;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    
+    .navbar::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .navbar ul {
+        flex-wrap: nowrap;
+    }
+    
+    .navbar a {
+        white-space: nowrap;
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+    
+    .search-form {
+        order: 3;
+        position: relative;
+        left: 0;
+        transform: none;
+        top: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .search-form input[type="search"] {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .header-right {
+        order: 1;
+        position: absolute;
+        top: 12px;
+        right: 16px;
+    }
+    
+    .header-actions {
+        gap: 16px;
+    }
+    
+    .action-btn {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* Mobile Large - 576px to 767px */
+@media (max-width: 767px) {
+    header {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+    
+    header h1, .site-title {
+        font-size: 18px;
+        letter-spacing: 0.08em;
+    }
+    
+    .navbar {
+        padding: 6px 12px;
+        border-radius: 30px;
+        margin: 10px auto;
+    }
+    
+    .navbar a {
+        padding: 6px 8px;
+        font-size: 10px;
+    }
+    
+    .search-form input[type="search"] {
+        height: 44px;
+        font-size: 14px;
+        padding: 8px 12px 8px 40px;
+    }
+    
+    .header-actions {
+        gap: 12px;
+    }
+    
+    .action-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .action-btn .bx {
+        font-size: 22px;
+    }
+}
+
+/* Mobile Small - below 576px */
+@media (max-width: 575px) {
+    body {
+        padding-top: 35px;
+    }
+    
+    header {
+        padding: 8px 10px;
+    }
+    
+    header h1, .site-title {
+        font-size: 16px;
+        letter-spacing: 0.06em;
+    }
+    
+    .navbar {
+        padding: 5px 8px;
+        margin: 8px auto;
+    }
+    
+    .navbar ul {
+        gap: 2px;
+    }
+    
+    .navbar a {
+        padding: 5px 6px;
+        font-size: 9px;
+        border-radius: 15px;
+    }
+    
+    .header-right {
+        top: 8px;
+        right: 10px;
+    }
+    
+    .header-actions {
+        gap: 8px;
+    }
+    
+    .action-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .action-btn .bx {
+        font-size: 20px;
+    }
+}
+
+/* Extra Small Mobile - below 360px */
+@media (max-width: 359px) {
+    header h1, .site-title {
+        font-size: 14px;
+    }
+    
+    .navbar a {
+        padding: 4px 5px;
+        font-size: 8px;
+    }
+    
+    .action-btn {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 3: TOP MARQUEE RESPONSIVE
+   ============================================================
+   Announcement bar at the top of the page
+   ============================================================ */
+
+@media (max-width: 767px) {
+    .top-marquee {
+        height: 30px;
+    }
+    
+    .top-marquee .marquee-track {
+        font-size: 12px;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-marquee {
+        height: 28px;
+    }
+    
+    .top-marquee .marquee-track {
+        font-size: 11px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 4: PROMO BAR RESPONSIVE
+   ============================================================
+   Promotional banner below header
+   ============================================================ */
+
+@media (max-width: 1600px) {
+    .promobar {
+        width: calc(100% - 40px);
+        max-width: 1480px;
+    }
+}
+
+@media (max-width: 991px) {
+    .promobar {
+        width: calc(100% - 30px);
+        height: 45px;
+        top: -20px;
+    }
+    
+    .promotext {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .promobar {
+        width: calc(100% - 20px);
+        height: 40px;
+        top: -15px;
+        border-radius: 8px;
+    }
+    
+    .promotext {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .promobar {
+        width: calc(100% - 16px);
+        height: 36px;
+        top: -10px;
+    }
+    
+    .promotext {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 5: HERO SECTION RESPONSIVE
+   ============================================================
+   Main hero banner on homepage
+   ============================================================ */
+
+@media (max-width: 1600px) {
+    .hero {
+        width: calc(100% - 40px);
+        max-width: 1477px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .hero {
+        width: calc(100% - 30px);
+        height: 350px;
+    }
+}
+
+@media (max-width: 991px) {
+    .hero {
+        width: calc(100% - 30px);
+        height: 300px;
+        top: -15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero {
+        width: calc(100% - 20px);
+        height: 250px;
+        top: -10px;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        width: calc(100% - 16px);
+        height: 200px;
+        top: -5px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 6: CATEGORIES GRID RESPONSIVE
+   ============================================================
+   Category boxes displayed on homepage
+   ============================================================ */
+
+@media (max-width: 1600px) {
+    .categories {
+        width: calc(100% - 60px);
+        max-width: 1450px;
+        margin: -20px auto;
+    }
+}
+
+@media (max-width: 1199px) {
+    .categories {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 991px) {
+    .categories {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: -10px auto;
+    }
+    
+    .category {
+        min-height: 120px;
+        padding: 10px;
+    }
+    
+    .category img {
+        height: 100px;
+    }
+    
+    .category .label {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 767px) {
+    .categories {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: calc(100% - 20px);
+        margin: 0 auto;
+    }
+    
+    .category {
+        min-height: 100px;
+        padding: 8px;
+    }
+    
+    .category img {
+        height: 80px;
+    }
+    
+    .category .label {
+        font-size: 10px;
+        padding-left: 4px;
+    }
+}
+
+@media (max-width: 575px) {
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .category {
+        min-height: 90px;
+        padding: 6px;
+        gap: 6px;
+    }
+    
+    .category img {
+        height: 70px;
+    }
+    
+    .category .label {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 359px) {
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .category img {
+        height: 60px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 7: BRAND ROW RESPONSIVE
+   ============================================================
+   Horizontal scrolling brand buttons
+   ============================================================ */
+
+@media (max-width: 991px) {
+    .brand-row-inner {
+        padding: 3px 12px;
+        height: 70px;
+    }
+    
+    .brand-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 767px) {
+    .brand-row {
+        margin: 20px 0;
+    }
+    
+    .brand-row-inner {
+        height: 60px;
+        gap: 6px;
+    }
+    
+    .brand-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-row-inner {
+        height: 50px;
+    }
+    
+    .brand-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 8: FEATURED DEALS SECTION RESPONSIVE
+   ============================================================
+   Daily deals grid on homepage
+   ============================================================ */
+
+@media (max-width: 1399px) {
+    .featured-deals {
+        max-width: 1300px;
+        padding: 0 30px;
+    }
+    
+    .deals-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .deals-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .featured-deals h2 {
+        font-size: clamp(24px, 3.5vw, 36px);
+    }
+}
+
+@media (max-width: 991px) {
+    .featured-deals {
+        margin: 40px auto 60px;
+        padding: 0 25px;
+    }
+    
+    .featured-deals-header {
+        margin-bottom: 35px;
+    }
+    
+    .deal-card {
+        padding: 20px 16px;
+        min-height: 340px;
+    }
+    
+    .deal-card img {
+        height: 240px;
+    }
+}
+
+@media (max-width: 767px) {
+    .featured-deals {
+        margin: 30px auto 50px;
+        padding: 0 15px;
+    }
+    
+    .deals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+    
+    .featured-deals h2 {
+        font-size: clamp(20px, 3vw, 28px);
+        letter-spacing: 0.06em;
+    }
+    
+    .deal-card {
+        padding: 16px 12px;
+        min-height: 300px;
+        border-radius: 14px;
+    }
+    
+    .deal-card img {
+        height: 200px;
+    }
+    
+    .deal-card h3 {
+        font-size: 14px;
+    }
+    
+    .deal-card .product-name {
+        font-size: 11px;
+    }
+    
+    .deal-card .discounted-price {
+        font-size: 18px;
+    }
+    
+    .deal-card .add-to-cart {
+        padding: 10px 18px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 575px) {
+    .deals-grid {
+        gap: 10px;
+    }
+    
+    .deal-card {
+        padding: 12px 10px;
+        min-height: 260px;
+        border-radius: 12px;
+    }
+    
+    .deal-card img {
+        height: 160px;
+    }
+    
+    .deal-card h3 {
+        font-size: 12px;
+    }
+    
+    .deal-card .discounted-price {
+        font-size: 16px;
+    }
+    
+    .deal-card .add-to-cart {
+        padding: 8px 14px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .deals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .deal-card img {
+        height: 140px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 9: GIFT SETS SECTION RESPONSIVE
+   ============================================================
+   Gift sets grid on homepage
+   ============================================================ */
+
+@media (max-width: 1199px) {
+    .gift-sets {
+        max-width: 100%;
+        padding: 0 30px;
+    }
+    
+    .gift-sets-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    
+    .gift-sets h2 {
+        font-size: 36px;
+        letter-spacing: 4px;
+    }
+}
+
+@media (max-width: 991px) {
+    .gift-sets {
+        padding: 0 25px;
+    }
+    
+    .gift-sets-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .gift-header {
+        margin-bottom: 35px;
+    }
+    
+    .gift-sets h2 {
+        font-size: 30px;
+        letter-spacing: 3px;
+    }
+    
+    .gift-card img {
+        height: 280px;
+    }
+}
+
+@media (max-width: 767px) {
+    .gift-sets {
+        padding: 0 15px;
+    }
+    
+    .gift-sets-grid {
+        gap: 16px;
+    }
+    
+    .gift-sets h2 {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+    
+    .gift-header-top {
+        gap: 12px;
+    }
+    
+    .gift-header .gift-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .gift-header .gift-icon i {
+        font-size: 22px;
+    }
+    
+    .gift-card img {
+        height: 220px;
+    }
+    
+    .gift-card h3 {
+        font-size: 12px;
+    }
+    
+    .gift-card .product-name {
+        font-size: 14px;
+    }
+    
+    .gift-card .gift-price {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 575px) {
+    .gift-sets-grid {
+        gap: 12px;
+    }
+    
+    .gift-card img {
+        height: 180px;
+    }
+    
+    .gift-badge {
+        font-size: 9px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gift-sets-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    .gift-card img {
+        height: 250px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 10: TRENDING SECTION RESPONSIVE
+   ============================================================
+   Trending products on homepage
+   ============================================================ */
+
+@media (max-width: 1199px) {
+    .trending-section {
+        padding: 60px 20px;
+    }
+    
+    .trending-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .trending-line {
+        width: 500px;
+    }
+}
+
+@media (max-width: 991px) {
+    .trending-section {
+        padding: 50px 15px;
+    }
+    
+    .trending-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .trending-section h2 {
+        font-size: 36px;
+        letter-spacing: 8px;
+    }
+    
+    .trending-line {
+        width: 400px;
+    }
+    
+    .trending-card img {
+        height: 240px;
+    }
+}
+
+@media (max-width: 767px) {
+    .trending-section {
+        padding: 40px 15px;
+    }
+    
+    .trending-header {
+        margin-bottom: 40px;
+    }
+    
+    .trending-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .trending-section h2 {
+        font-size: 28px;
+        letter-spacing: 6px;
+    }
+    
+    .trending-line {
+        width: 280px;
+        height: 2px;
+    }
+    
+    .trending-card img {
+        height: 200px;
+    }
+    
+    .trending-card h3 {
+        font-size: 11px;
+    }
+    
+    .trending-card .product-name {
+        font-size: 13px;
+    }
+    
+    .trending-card .trending-price {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 575px) {
+    .trending-grid {
+        gap: 12px;
+    }
+    
+    .trending-section h2 {
+        font-size: 22px;
+        letter-spacing: 4px;
+    }
+    
+    .trending-line {
+        width: 200px;
+    }
+    
+    .trending-card {
+        padding: 10px;
+    }
+    
+    .trending-card img {
+        height: 160px;
+    }
+}
+
+@media (max-width: 400px) {
+    .trending-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto 40px;
+    }
+    
+    .trending-card img {
+        height: 220px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 11: CARD ACTION BUTTONS RESPONSIVE
+   ============================================================
+   Wishlist and cart buttons on product cards
+   ============================================================ */
+
+@media (max-width: 767px) {
+    .card-actions {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .card-actions .action-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .card-actions .action-btn i {
+        font-size: 16px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 12: SIDEBAR/CART RESPONSIVE
+   ============================================================
+   Cart, wishlist, and account sidebars
+   ============================================================ */
+
+@media (max-width: 991px) {
+    .sidebar {
+        width: 380px;
+    }
+}
+
+@media (max-width: 720px) {
+    .sidebar { 
+        width: 100%; 
+        right: -100%; 
+        transform: translateX(100%);
+        border-radius: 0;
+    }
+    
+    .sidebar.open { 
+        right: 0; 
+        transform: translateX(0); 
+    }
+    
+    .sidebar-top { 
+        padding: 16px 20px; 
+    }
+    
+    .sidebar .sidebar-tabs-row { 
+        padding: 12px 16px; 
+    }
+    
+    .sidebar .sidebar-content { 
+        padding: 16px; 
+    }
+    
+    .sidebar-tabs .tab-btn {
+        padding: 10px 12px;
+    }
+    
+    .sidebar-tabs .tab-btn .tab-label {
+        font-size: 12px;
+    }
+    
+    .cart-item { 
+        padding: 14px;
+        border-radius: 14px;
+    }
+    
+    .cart-item img { 
+        width: 70px; 
+        height: 70px; 
+    }
+    
+    .cart-item .meta .title {
+        font-size: 13px;
+    }
+    
+    .cart-item .meta .price {
+        font-size: 14px;
+    }
+    
+    .cart-footer .checkout {
+        padding: 16px 20px;
+        font-size: 15px;
+    }
+    
+    .sidebar .cart-footer {
+        margin: 0 -16px -16px -16px;
+        padding: 24px 16px 20px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-tabs {
+        gap: 6px;
+    }
+    
+    .sidebar-tabs .tab-btn {
+        padding: 8px 10px;
+        gap: 6px;
+    }
+    
+    .sidebar-tabs .tab-btn .bx {
+        font-size: 18px;
+    }
+    
+    .sidebar-tabs .tab-btn .tab-label {
+        font-size: 11px;
+    }
+    
+    .cart-item {
+        gap: 12px;
+    }
+    
+    .cart-item img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 13: FOOTER RESPONSIVE
+   ============================================================
+   Site footer across all pages
+   ============================================================ */
+
+@media (max-width: 991px) {
+    .footer {
+        padding: 35px 0 15px;
+    }
+    
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .footer-section h3 {
+        font-size: 22px;
+    }
+    
+    .footer-section h4 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer {
+        padding: 30px 0 15px;
+        margin-top: 40px;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section h3 {
+        font-size: 20px;
+    }
+    
+    .footer-section p {
+        font-size: 14px;
+    }
+    
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        max-width: 300px;
+        margin: 15px auto 0;
+    }
+    
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+    }
+    
+    .footer-bottom {
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-section h3 {
+        font-size: 18px;
+    }
+    
+    .social-links a {
+        font-size: 22px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 14: ABOUT PAGE RESPONSIVE
+   ============================================================
+   About page specific responsive styles
+   ============================================================ */
+
+/* About Hero Section */
+@media (max-width: 1199px) {
+    .about-hero {
+        flex-direction: column;
+        gap: 40px;
+        padding: 60px 30px;
+    }
+    
+    .about-hero-content {
+        text-align: center;
+        max-width: 600px;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-hero {
+        padding: 40px 20px;
+        gap: 30px;
+    }
+    
+    .about-hero h1 {
+        font-size: clamp(28px, 6vw, 42px);
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .stat-number {
+        font-size: 32px;
+    }
+    
+    .hero-image-wrapper img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* About Story Section */
+@media (max-width: 991px) {
+    .story-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .story-text,
+    .story-image {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-story {
+        padding: 40px 20px;
+    }
+    
+    .story-header h2 {
+        font-size: clamp(24px, 5vw, 36px);
+    }
+}
+
+/* About Values Section */
+@media (max-width: 1199px) {
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .about-values {
+        padding: 40px 20px;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .value-card {
+        padding: 25px 20px;
+    }
+}
+
+/* About Why Choose Us Section */
+@media (max-width: 991px) {
+    .why-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .why-content,
+    .why-visual {
+        max-width: 100%;
+    }
+    
+    .why-image-grid {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-why {
+        padding: 40px 20px;
+    }
+    
+    .why-content h2 {
+        font-size: clamp(24px, 5vw, 32px);
+    }
+    
+    .why-list li {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .why-image-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .why-image-grid img {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .why-image-grid {
+        grid-template-columns: 1fr;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
+/* About CTA Section */
+@media (max-width: 767px) {
+    .about-cta {
+        padding: 50px 20px;
+    }
+    
+    .cta-content h2 {
+        font-size: clamp(22px, 5vw, 32px);
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .cta-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 15: TRACK ORDER PAGE RESPONSIVE
+   ============================================================
+   Order tracking page responsive styles
+   ============================================================ */
+
+@media (max-width: 991px) {
+    .track-order {
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+    
+    .track-container {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .track-order {
+        margin: 20px auto;
+    }
+    
+    .track-container {
+        padding: 20px;
+    }
+    
+    .track-container h2 {
+        font-size: clamp(22px, 4vw, 30px);
+    }
+    
+    .track-container h2::after {
+        width: 150px;
+    }
+    
+    .track-form {
+        gap: 15px;
+    }
+    
+    .form-group input {
+        padding: 10px 14px;
+        font-size: 15px;
+    }
+    
+    .track-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+    
+    .status-item {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .status-icon {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .track-container {
+        padding: 15px;
+        border-radius: 10px;
+    }
+    
+    .tracking-info h3 {
+        font-size: 20px;
+    }
+    
+    .status-details h4 {
+        font-size: 16px;
+    }
+    
+    .status-details p {
+        font-size: 13px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 16: CHECKOUT PAGE RESPONSIVE
+   ============================================================
+   Checkout form and order summary
+   ============================================================ */
+
+@media (max-width: 991px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 15px;
+    }
+    
+    .order-summary {
+        order: -1;
+    }
+}
+
+@media (max-width: 767px) {
+    .checkout-container {
+        gap: 20px;
+    }
+    
+    .checkout-form {
+        padding: 20px;
+    }
+    
+    .checkout-form h2 {
+        font-size: 24px;
+    }
+    
+    .form-section h3 {
+        font-size: 18px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .payment-methods {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .order-summary {
+        padding: 20px;
+    }
+    
+    .order-summary h3 {
+        font-size: 20px;
+    }
+    
+    .checkout-btn {
+        font-size: 16px;
+        padding: 14px;
+    }
+    
+    .thank-you-content {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .checkout-form {
+        padding: 15px;
+    }
+    
+    .form-section {
+        margin-bottom: 30px;
+    }
+    
+    .payment-methods {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-item img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .thank-you-icon {
+        font-size: 48px;
+    }
+    
+    .thank-you-content h2 {
+        font-size: 22px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 17: CATALOG PAGE RESPONSIVE (ADDITIONAL)
+   ============================================================
+   Additional catalog-specific responsive fixes
+   ============================================================ */
+
+@media (max-width: 1600px) {
+    .catalog-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1199px) {
+    .catalog-container {
+        grid-template-columns: 260px 1fr;
+        gap: 35px;
+        padding: 0 20px 60px;
+    }
+}
+
+/* Mobile filter improvements */
+@media (max-width: 767px) {
+    .catalog-filters.active {
+        animation: slideInFromLeft 0.3s ease;
+    }
+    
+    @keyframes slideInFromLeft {
+        from {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    .catalog-content {
+        width: 100%;
+    }
+}
+
+
+/* ============================================================
+   SECTION 18: PRODUCT PAGE RESPONSIVE (ADDITIONAL)
+   ============================================================
+   Additional product page responsive fixes
+   ============================================================ */
+
+@media (max-width: 575px) {
+    .product-container {
+        padding: 0 10px;
+    }
+    
+    .product-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .product-actions button {
+        width: 100%;
+    }
+}
+
+
+/* ============================================================
+   SECTION 19: AUTHENTICATION PANEL RESPONSIVE
+   ============================================================
+   Login/signup forms in sidebar
+   ============================================================ */
+
+@media (max-width: 767px) {
+    .auth-view {
+        padding: 20px 0;
+    }
+    
+    .auth-header {
+        margin-bottom: 25px;
+    }
+    
+    .auth-header h3 {
+        font-size: 22px;
+    }
+    
+    .social-login-buttons {
+        gap: 10px;
+    }
+    
+    .social-btn {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+    
+    .auth-benefits {
+        gap: 8px;
+    }
+    
+    .auth-benefits .benefit {
+        font-size: 13px;
+    }
+}
+
+
+/* ============================================================
+   SECTION 20: GENERAL UTILITY RESPONSIVE
+   ============================================================
+   General responsive utility classes and fixes
+   ============================================================ */
+
+/* Hide on mobile */
+@media (max-width: 767px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Hide on tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+    .hide-tablet {
+        display: none !important;
+    }
+}
+
+/* Hide on desktop */
+@media (min-width: 992px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* Text alignment responsive */
+@media (max-width: 767px) {
+    .text-center-mobile {
+        text-align: center !important;
+    }
+}
+
+/* Ensure images don't overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix for fixed width elements on small screens */
+@media (max-width: 767px) {
+    .promobar,
+    .hero,
+    .categories,
+    .brand-row-inner {
+        max-width: 100% !important;
+    }
+}
+
+/* Improve readability on small screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    h1 { font-size: clamp(20px, 5vw, 28px); }
+    h2 { font-size: clamp(18px, 4.5vw, 24px); }
+    h3 { font-size: clamp(16px, 4vw, 20px); }
+    h4 { font-size: clamp(14px, 3.5vw, 18px); }
+}
+
+/* Smooth transitions for responsive changes */
+@media (prefers-reduced-motion: no-preference) {
+    .navbar,
+    .search-form,
+    .header-right,
+    .deals-grid,
+    .gift-sets-grid,
+    .trending-grid,
+    .categories {
+        transition: all 0.3s ease;
+    }
+}
+
+/* Print styles - hide unnecessary elements */
+@media print {
+    .top-marquee,
+    .sidebar,
+    .sidebar-overlay,
+    .header-actions,
+    .search-form,
+    .navbar {
+        display: none !important;
+    }
+    
+    body {
+        padding-top: 0 !important;
+    }
+}
